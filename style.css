@@ -1,0 +1,228 @@
+/* Global Styles & Font Import */
+:root {
+    --color-white: #FFFFFF;
+    --color-green-100: #E8F5E9; /* Inspired by Colors.green.shade100 */
+    --color-orange-100: #FFF3E0; /* Inspired by Colors.orange.shade100 */
+    
+    --text-color-primary: #2E7D32; /* Inspired by Colors.green.shade800 */
+    --text-color-secondary: #616161; /* Inspired by Colors.grey.shade700 */
+    
+    --button-green: #4CAF50; /* Inspired by Colors.green[500] */
+    --button-orange: #FF9800; /* Inspired by Colors.orange[500] */
+
+    /* --- UPDATED FOR MORE GLASS EFFECT --- */
+    --glass-bg-start: rgba(255, 255, 255, 0.45); /* Was 0.6, more transparent */
+    --glass-bg-end: rgba(255, 255, 255, 0.2);   /* Was 0.3, more transparent */
+    --glass-border: rgba(255, 255, 255, 0.3);  /* Was 0.4, slightly more transparent border */
+    /* --- END OF UPDATE --- */
+
+    --font-family-main: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- UPDATED BODY FOR SCROLL FIX --- */
+body {
+    font-family: var(--font-family-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers .page-container horizontally */
+    justify-content: flex-start; /* Content starts from top. Use 'center' for vertical centering of short content. */
+    /* padding: 20px; */ /* REMOVED - Padding now handled by .page-container */
+    background: linear-gradient(135deg, var(--color-white), var(--color-green-100), var(--color-orange-100));
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+    overflow-x: hidden; /* Safeguard against horizontal scrolling */
+}
+/* --- END OF UPDATE --- */
+
+.page-container {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    padding: 30px 20px; /* Added a bit more top/bottom padding for overall spacing */
+}
+
+/* Ensure images/icons inside containers don't cause overflow */
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header Styles */
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-color-primary);
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 16px;
+    color: var(--text-color-secondary);
+}
+
+/* Download Section & Cards */
+.download-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.download-card {
+    flex: 1 1 300px;
+    max-width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--glass-bg-start), var(--glass-bg-end));
+    border: 1px solid var(--glass-border);
+    /* --- UPDATED FOR MORE BLUR --- */
+    backdrop-filter: blur(12px); /* Increased blur from 8px */
+    -webkit-backdrop-filter: blur(12px); /* Safari */
+    /* --- END OF UPDATE --- */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.download-card .card-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+.download-card .android-icon {
+    color: var(--button-green);
+}
+.download-card .apple-icon {
+    color: #555;
+}
+
+.download-card h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color-primary);
+    margin-bottom: 8px;
+}
+
+.download-card .version-info {
+    font-size: 14px;
+    color: var(--text-color-secondary);
+    margin-bottom: 15px;
+}
+
+.download-card .card-description {
+    font-size: 15px;
+    color: var(--text-color-secondary);
+    margin-bottom: 25px;
+    flex-grow: 1;
+    /* --- ADDED FOR TEXT WRAPPING --- */
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Older browsers */
+    /* --- END OF ADDITION --- */
+}
+
+/* Download Button Styles */
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-white);
+    background-image: linear-gradient(to right, var(--button-green) 0%, var(--button-orange) 100%);
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px 0 rgba(76, 175, 80, 0.3);
+}
+
+.download-button .icon {
+    margin-right: 10px;
+}
+
+.download-button:hover,
+.download-button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(76, 175, 80, 0.4);
+}
+
+.download-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px 0 rgba(76, 175, 80, 0.2);
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-size: 14px;
+    color: var(--text-color-secondary);
+}
+
+footer a {
+    color: var(--text-color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: var(--button-orange);
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+    }
+    .download-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .download-card {
+        width: 90%; /* 90% of .page-container's content width */
+        max-width: 400px; /* Still allow a decent max width on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        padding: 20px 15px; /* Slightly less horizontal padding on very small screens */
+    }
+    header h1 {
+        font-size: 24px;
+    }
+    header p {
+        font-size: 15px;
+    }
+    .download-card {
+        width: 95%; /* Take up a bit more space on very small screens */
+        padding: 20px;
+    }
+    .download-card h2 {
+        font-size: 20px;
+    }
+    .download-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
